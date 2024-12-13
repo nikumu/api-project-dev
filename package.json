@@ -1,13 +1,20 @@
 {
-  "name": "api-instadev",
+  "name": "api-backend-dev",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.13.0",
     "nodemon": "^3.1.9",
     "sequelize-cli": "^6.6.2"
   }
