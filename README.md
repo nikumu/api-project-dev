@@ -1,1 +1,3 @@
 # api-backend-dev
+
+Backend dev is a robust API developed in Node.js that serves as the backend for an Instagram-inspired application. This project was created to demonstrate development best practices, including RESTful API structuring, user authentication, media management, and database integration. The application implements essential features such as user registration, post publishing, likes system, and comments, providing a solid foundation for social network development.
