@@ -8,18 +8,21 @@ Backend Dev is a robust API developed in Node.js that serves as the backend for 
 
 1. Clone o repositório / Clone the repository:
 
-`git clone https://github.com/nikumu/api-backend-dev`
-
+```bash
+git clone https://github.com/nikumu/api-backend-dev
+```
 
 2. Entre no diretório do projeto / Enter the project directory:
 
-`cd api-backend-dev`
-
+```bash
+cd api-backend-dev
+```
 
 3. Instale as dependências / Install the dependencies:
 
-`npm install`
-
+```bash
+npm install
+```
 
 4. Configure as variáveis de ambiente / Set up environment variables:
 - Crie um arquivo `.env` na raiz do projeto / Create a `.env` file in the project root
@@ -27,8 +30,9 @@ Backend Dev is a robust API developed in Node.js that serves as the backend for 
 
 5. Inicie o servidor de desenvolvimento / Start the development server:
 
-`npm run dev`
-
+```bash
+npm run dev
+```
 
 ## Uso / Usage
 
