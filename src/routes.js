@@ -1,15 +1,12 @@
 const { Router }  = require('express');
-const UserModel = require('./apps/models/Users');
+const UserController = require('./apps/controllers/UserController');
 
 const routes = new Router();
 
-routes.get('/users', async (req, res) => {
-    const allUsers = await UserModel.findAll();
-    res.send({ users: allUsers });
-});
+routes.get('/users', UserController.create);
 
 routes.get('/health', (req, res) =>  res.send({
     message: 'Connected with success!',
 }));
 
-module.exports = routes;
+module.exports = routes; 
