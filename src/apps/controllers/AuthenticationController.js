@@ -26,7 +26,13 @@ class AuthenticationController {
             return res.status(401).json({ error: 'Password does not match!' });
         }
 
-        return res.status(200).json({ user });
+        const { id, user_name: userName } = user;
+
+        const token = jwt.sign({}, process.env.HASH_BCRYPT, {
+            expiresIn: '7d',
+        });
+
+        return res.status(200).json({ user: { id, user_name: userName }, token });
     }
 }
 
