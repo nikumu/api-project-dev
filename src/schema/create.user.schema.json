@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "CreateuserSchema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "user_name": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
+        }
+    },
+    "required": ["name", "user_name", "email", "password"]
+}
