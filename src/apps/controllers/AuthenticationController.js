@@ -3,16 +3,16 @@ const Users = require('../models/Users');
 const { encrypt } = require('../../utils/crypt');
 
 class AuthenticationController {
-    async authenticate(req, res){
+    async authenticate(req, res) {
         const { email, user_name, password } = req.body;
 
         let whereClause = {};
         if (email) {
-            whereClause = { email };
+            whereClause.email = email;
         } else if (user_name) {
-            whereClause = { user_name };
+            whereClause.user_name =  user_name;
         } else {
-            return res.status(401).json({ error: 'We need a e-mail or password!' });
+            return res.status(401).json({ error: 'We need a e-mail or username!' });
         }
 
         const user = await Users.findOne({
