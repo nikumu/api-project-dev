@@ -6,13 +6,17 @@ class AuthenticationController {
     async authenticate(req, res){
         const { email, user_name, password } = req.body;
 
+        let whereClause = {};
+        if (email) {
+            whereClause = { email };
+        } else if (user_name) {
+            whereClause = { user_name };
+        } else {
+            return res.status(401).json({ error: 'We need a e-mail or password!' });
+        }
+
         const verifyUser = await Users.findOne({
-            where: {
-                [Op.or]: [
-                    { email },
-                    { user_name },
-                ],
-            },
+            where: whereClause,
         });
 
         if (!verifyUser) {
