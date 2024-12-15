@@ -8,3 +8,4 @@ const decryptedToken = async (authHeader) => {
 };
 
 module.exports = { decryptedToken };
+
