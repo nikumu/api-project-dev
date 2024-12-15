@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const { Op } = require('sequelize');
 const Users = require('../models/Users');
 
 class AuthenticationController {
@@ -15,15 +14,19 @@ class AuthenticationController {
             return res.status(401).json({ error: 'We need a e-mail or password!' });
         }
 
-        const verifyUser = await Users.findOne({
+        const user = await Users.findOne({
             where: whereClause,
         });
 
-        if (!verifyUser) {
+        if (!user) {
             return res.status(401).json({ error: 'User not found!' });
         }
 
-        return res.status(200).json({ user: verifyUser });
+        if(!await user.checkPassword(password)) {
+            return res.status(401).json({ error: 'Password does not match!' });
+        }
+
+        return res.status(200).json({ user });
     }
 }
 
