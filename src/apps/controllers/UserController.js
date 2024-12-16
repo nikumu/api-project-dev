@@ -1,5 +1,5 @@
-const Users = require('../models/Users');
 const bcryptjs = require('bcryptjs');
+const Users = require('../models/Users');
 
 class UserController {
     async create(req, res) {
@@ -42,7 +42,7 @@ class UserController {
             return res.status(400).json({ message: 'User not exists! '});
         }
 
-        const encryptedPassword = '';
+        let encryptedPassword = '';
 
         if (old_password) {
             if(!await user.checkPassword(old_password)) {
@@ -50,13 +50,13 @@ class UserController {
             }
 
             if (!new_password || !confirm_new_password) {
-                return res.status(401).jason({
+                return res.status(401).json({
                     error: 'We need a new_password and confirm_new_password attributes!',
                 });
             }
 
             if (!new_password != confirm_new_password) {
-                return res.status(401).jason({
+                return res.status(401).json({
                     error: 'New password and confirm new password does not match!',
                 });
             }
@@ -66,7 +66,7 @@ class UserController {
 
         await Users.update (
             {
-                name: name || user_name,
+                name: name || user.name,
                 avatar: avatar || user.avatar,
                 bio: bio || user.bio,
                 gender: gender || user.gender,
@@ -79,7 +79,7 @@ class UserController {
             },
         );
 
-        return res.status(200).json({ message: 'user updated!' });
+        return res.status(200).json({ message: 'User updated!' });
     }
 }
 
