@@ -1,4 +1,5 @@
 const Users = require('../models/Users');
+const bcryptjs = require('bcryptjs');
 
 class UserController {
     async create(req, res) {
@@ -18,6 +19,67 @@ class UserController {
         }
 
         return res.send({ message: 'User created!' });
+    }
+
+    async update(req, res) {
+        const { 
+            name, 
+            avatar, 
+            bio, 
+            gender, 
+            old_password,
+            new_password, 
+            confirm_new_password,
+        } = req.body;
+
+        const user = await Users.findOne ({
+            where: {
+                id: req.userId,
+            },
+        });
+
+        if(!user) {
+            return res.status(400).json({ message: 'User not exists! '});
+        }
+
+        const encryptedPassword = '';
+
+        if (old_password) {
+            if(!await user.checkPassword(old_password)) {
+                return res.status(401).json({ error: 'Old password does not match! '});
+            }
+
+            if (!new_password || !confirm_new_password) {
+                return res.status(401).jason({
+                    error: 'We need a new_password and confirm_new_password attributes!',
+                });
+            }
+
+            if (!new_password != confirm_new_password) {
+                return res.status(401).jason({
+                    error: 'New password and confirm new password does not match!',
+                });
+            }
+
+            encryptedPassword = await bcryptjs.hash(new_password, 8);
+        }
+
+        await Users.update (
+            {
+                name: name || user_name,
+                avatar: avatar || user.avatar,
+                bio: bio || user.bio,
+                gender: gender || user.gender,
+                password_hash: encryptedPassword || user.password_hash,
+            },
+            {
+                where: {
+                    id: user.id,
+                },
+            },
+        );
+
+        return res.status(200).json({ message: 'user updated!' });
     }
 }
 
