@@ -8,7 +8,9 @@ const AuthenticationController = require('./apps/controllers/AuthenticationContr
 const authSchema = require('./schema/auth.schema.json');
 
 const UserController = require('./apps/controllers/UserController');
-const userSchema = require('./schema/create.user.schema.json')
+const userSchema = require('./schema/create.user.schema.json');
+
+const FileController = require('./apps/controllers/FileController');
 
 const routes = new Router();
 
@@ -26,6 +28,6 @@ routes.put('/user', UserController.update);
 routes.delete('/user', UserController.delete);
 routes.get('/user-profile', UserController.userProfile);
 
-routes.get('/upload', upload.single('image'));
+routes.post('/upload', upload.single('image'), FileController.upload);
 
 module.exports = routes; 

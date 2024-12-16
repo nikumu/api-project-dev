@@ -1,13 +1,13 @@
 const multer = require('multer');
-const { v4 } = require('uuid')
+const { v4 } = require('uuid');
 
-const upload  = multer({
+const upload = multer({
     storage: multer.diskStorage({
         destination: 'uploads/',
         filename(req, file, callback) {
             const filename = `${v4()}-${file.originalname}`;
 
-            return callback(null, filename)
+            return callback(null, filename);
         },
     }),
 });
