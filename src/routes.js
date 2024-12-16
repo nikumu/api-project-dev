@@ -12,15 +12,17 @@ const userSchema = require('./schema/create.user.schema.json');
 
 const FileController = require('./apps/controllers/FileController');
 
+const PostController = require('./apps/controllers/PostController');
+const postSchema = require('./schema/post.schema.json');
+
 const routes = new Router();
-
-routes.post('/user', schemaValidator(userSchema), UserController.create);
-
-routes.post('/auth', schemaValidator(authSchema), AuthenticationController.authenticate);
 
 routes.get('/health', (req, res) =>  res.send({
     message: 'Connected with success!',
 }));
+
+routes.post('/auth', schemaValidator(authSchema), AuthenticationController.authenticate);
+routes.post('/user', schemaValidator(userSchema), UserController.create);
 
 routes.use(AuthenticationMiddleware);
 
@@ -30,4 +32,5 @@ routes.get('/user-profile', UserController.userProfile);
 
 routes.post('/upload', upload.single('image'), FileController.upload);
 
+routes.post('/posts', schemaValidator(postSchema), PostController.create);
 module.exports = routes; 
