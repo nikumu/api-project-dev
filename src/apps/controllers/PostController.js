@@ -101,7 +101,27 @@ class PostController {
 
         return res.status(200).json({
             message: 'Like storaged!', 
-            numberLikes: postUpdate.number_likes,
+        });
+    }
+
+    async listMyPosts() {
+        const allPosts = await Posts.findAll({
+            where: {
+                author_id = req.userId,
+            },
+        });
+
+        if (!allPosts) {
+            return res.status(400).json( { message: 'Failed to list all posts!' });
+        }
+
+        const { 
+            id, image, description, number_likes,
+        } = allPosts;
+        return res.status(200).json({
+            data: {
+                id, image, description, number_likes,
+            },
         });
     }
 }
