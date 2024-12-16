@@ -104,10 +104,10 @@ class PostController {
         });
     }
 
-    async listMyPosts() {
+    async listMyPosts(req, res) {
         const allPosts = await Posts.findAll({
             where: {
-                author_id = req.userId,
+                author_id: req.userId,
             },
         });
 
@@ -115,13 +115,19 @@ class PostController {
             return res.status(400).json( { message: 'Failed to list all posts!' });
         }
 
-        const { 
-            id, image, description, number_likes,
-        } = allPosts;
+        const formattedData = [];
+
+        for (const item of allPosts) {
+            formattedData.push({
+                id: item.id,
+                image: item.image,
+                description: item.description,
+                number_likes: item.number_likes,
+            });
+        }
+        
         return res.status(200).json({
-            data: {
-                id, image, description, number_likes,
-            },
+            data: formattedData,
         });
     }
 }
