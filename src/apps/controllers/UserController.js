@@ -32,7 +32,7 @@ class UserController {
             confirm_new_password,
         } = req.body;
 
-        const user = await Users.findOne ({
+        const user = await Users.findOne({
             where: {
                 id: req.userId,
             },
@@ -64,7 +64,7 @@ class UserController {
             encryptedPassword = await bcryptjs.hash(new_password, 8);
         }
 
-        await Users.update (
+        await Users.update(
             {
                 name: name || user.name,
                 avatar: avatar || user.avatar,
@@ -99,7 +99,21 @@ class UserController {
             },
         });
 
-        return res.status(200).json( { message: 'user deleted! '});
+        return res.status(200).json({ message: 'user deleted! '});
+    }
+
+    async userProfile(req, res) {
+        const user = await Users.findOne({
+            where: {
+                id: req.userId,
+            },
+        });
+
+        if(!user) {
+            return res.status(400).json({ message: 'User not exists! '});
+        }
+
+        return res.status(200).json({ user });
     }
 }
 
