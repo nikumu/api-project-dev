@@ -23,7 +23,6 @@ class PostController {
         const verifyPost = await Posts.findOne({
             where: {
                 id,
-
             },
         });
 
@@ -31,7 +30,7 @@ class PostController {
             return res.status(404).json({ message: 'post does not exits!' });
         }
 
-        if (verifyPost.author_id != req.userId) {
+        if (verifyPost.author_id !== req.userId) {
             return res.status(401).json({
                 message: 'You don\'t have permission to delete this post! ',
             });
@@ -48,6 +47,34 @@ class PostController {
         }
 
         return res.status(200).json({ message: 'Post deleted! '});
+    }
+
+    async update(req, res) {
+        const { id } = req.params;
+
+        const verifyPost = await Posts.findOne({
+            where: {
+                id,
+            },
+        });
+
+        if (!verifyPost) {
+            return res.status(404).json({ message: 'post does not exits!' });
+        }
+
+        if (verifyPost.author_id !== req.userId) {
+            return res.status(401).json({
+                message: 'You don\'t have permission to delete this post! ',
+            });
+        } 
+
+        const postUpdate = await Posts.update(req.body, { where: { id } });
+
+        if (!postUpdate) {
+            return res.status(400).json({ message: 'Failed to update this post! '});
+        }
+
+        return res.status(200).json({ message: 'Posts updated!'});
     }
 }
 
