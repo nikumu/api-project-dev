@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "3c00ee37-5379-4b86-971b-2ba672e31651",
+		"name": "BackendDev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40425563"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Giorno Joestar\",\n    \"user_name\": \"jojo\",\n    \"password\": \"269800\",\n    \"email\": \"jojo@gmail.com\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTE2ODg5Njc5YjRlNDEyNDk3Njg4ZDY2YTE0N2M4ODowMDQzIiwiaWF0IjoxNzM0MzE5MDMyLCJleHAiOjE3MzQ5MjM4MzJ9.Oq0oHb_HHHU2Yy8pRCq0FPZ1WWi_DLaQjRXECoSFOMo",
+								"type": "text"
+							}
+						],
+						"url": "{{API_URL}}/user-profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiZmMzYWVlZjgyMjAxMjViNmUyYmYyNjM2ZDYzYzcwMjpjNSIsImlhdCI6MTczNDMxNDIwMywiZXhwIjoxNzM0OTE5MDAzfQ.uAv3zLODDBX0N4Hzfcc6aGiiYyPJJIGE40ZTJTaSRnM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Manoel\",\n    \"user_name\": \"manoel\",\n    \"avatar\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SGvshARHJ5GYSH_Kig8-cYNw5rO3nWn7mA&s\",\n    \"bio\": \"descrição\",\n    \"gender\": \"Masculino\",\n    \"old_password\": \"\",\n    \"new_password\": \"\",\n    \"confirm_new_password\": \"\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiZmMzYWVlZjgyMjAxMjViNmUyYmYyNjM2ZDYzYzcwMjpjNSIsImlhdCI6MTczNDMxNDIwMywiZXhwIjoxNzM0OTE5MDAzfQ.uAv3zLODDBX0N4Hzfcc6aGiiYyPJJIGE40ZTJTaSRnM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "{{API_URL}}/user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Giorno Joestar\",\n    \"user_name\": \"jojo\",\n    \"password\": \"269800\",\n    \"email\": \"jojo@gmail.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}/auth"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Meu Upload",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OWQ1ZmVhYTY4MDUyNTA1NjM4OTlmNDMwNTBkNGEzZDo3YSIsImlhdCI6MTczNDMwNDQwOSwiZXhwIjoxNzM0OTA5MjA5fQ.r3cuCB-2BCU6L-1PUeXZNoEj6GOy9sCwgodJkPlYJ_s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Manoel\",\n    \"user_name\": \"manoel\",\n    \"password\": \"1234\",\n    \"email\": \"manoel@gmail.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API_URL}}/health"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OWQ1ZmVhYTY4MDUyNTA1NjM4OTlmNDMwNTBkNGEzZDo3YSIsImlhdCI6MTczNDMwNDQwOSwiZXhwIjoxNzM0OTA5MjA5fQ.r3cuCB-2BCU6L-1PUeXZNoEj6GOy9sCwgodJkPlYJ_s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Manoel\",\n    \"user_name\": \"manoel\",\n    \"password\": \"1234\",\n    \"email\": \"manoel@gmail.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{API_URL}}/health"
+			},
+			"response": []
+		}
+	]
+}
