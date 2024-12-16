@@ -104,6 +104,7 @@ class UserController {
 
     async userProfile(req, res) {
         const user = await Users.findOne({
+            attributes: ['id', 'name', 'user_name', 'email', 'avatar', 'bio', 'gender'],
             where: {
                 id: req.userId,
             },
@@ -113,7 +114,15 @@ class UserController {
             return res.status(400).json({ message: 'User not exists! '});
         }
 
-        return res.status(200).json({ user });
+        // console.log(user);
+
+        const {
+            id, name, user_name, email, avatar, bio, gender, 
+        } = user;
+
+        return res.status(200).json({ 
+            id, name, user_name, email, avatar, bio, gender, 
+        });
     }
 }
 
