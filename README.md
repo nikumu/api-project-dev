@@ -1,21 +1,21 @@
-# api-backend-dev
+# api-project-dev
 
-Backend Dev é uma API robusta desenvolvida em Node.js que serve como backend para uma aplicação inspirada no Instagram. Este projeto foi criado como parte de um bootcamp para demonstrar boas práticas de desenvolvimento de APIs RESTful.
+Project Dev é uma API robusta desenvolvida em Node.js que serve como backend para uma aplicação inspirada no Instagram. Este projeto foi criado como parte de um bootcamp para demonstrar boas práticas de desenvolvimento de APIs RESTful.
 
-Backend Dev is a robust API developed in Node.js that serves as the backend for an Instagram-inspired application. This project was created as part of a bootcamp to demonstrate best practices in RESTful API development.
+Project Dev is a robust API developed in Node.js that serves as the backend for an Instagram-inspired application. This project was created as part of a bootcamp to demonstrate best practices in RESTful API development.
 
 ## Instalação / Installation
 
 1. Clone o repositório / Clone the repository:
 
 ```bash
-git clone https://github.com/nikumu/api-backend-dev
+git clone https://github.com/nikumu/api-project-dev
 ```
 
 2. Entre no diretório do projeto / Enter the project directory:
 
 ```bash
-cd api-backend-dev
+cd api-project-dev
 ```
 
 3. Instale as dependências / Install the dependencies:
