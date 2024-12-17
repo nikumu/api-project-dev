@@ -1,0 +1,44 @@
+{
+  "name": "backblaze-b2",
+  "version": "1.7.0",
+  "description": "Node.js Library for the Backblaze B2 Storage Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint-all && npm run test-unit",
+    "test-unit": "mocha \"test/**/*Test.js\"",
+    "lint-lib": "eslint \"lib/**/*.js\" --parser-options=ecmaVersion:6 --global Promise",
+    "lint-test": "eslint \"test/**/*.js\" --parser-options=ecmaVersion:6 --global describe,it,beforeEach,Promise",
+    "lint-all": "npm run lint-lib && npm run lint-test"
+  },
+  "keywords": [
+    "backblaze",
+    "b2",
+    "storage"
+  ],
+  "homepage": "https://github.com/yakovkhalinsky/backblaze-b2",
+  "author": {
+    "name": "Yakov Khalinsky",
+    "email": "yakov@therocketsurgeon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yakovkhalinsky/backblaze-b2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yakovkhalinsky/backblaze-b2/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^8.4.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
+    "lodash": "^4.17.21"
+  },
+  "engines": {
+    "node": ">=10.0"
+  }
+}
