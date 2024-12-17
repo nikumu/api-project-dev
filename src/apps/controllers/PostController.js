@@ -134,8 +134,14 @@ class PostController {
 
     async listAllPosts(req, res) {
         const allPosts = await Posts.findAll({
+            attributes: ['id', 'description', 'image', 'number_likes'],
             include: [
-                { model: Users, as: 'user', required: true }
+                { 
+                    model: Users, 
+                    as: 'user', 
+                    required: true,
+                    attributes: ['id', 'user_name'],
+                }
             ],
         });
 
